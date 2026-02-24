@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook } from "lucide-react";
+import xgenLogo from "@/assets/xgen-logo.jpg";
 
 const Footer = () => {
   return (
@@ -8,14 +9,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <span className="text-2xl font-heading font-extrabold text-primary">XGen</span>
-            <span className="text-lg font-heading font-semibold text-foreground ml-2">
-              HomeBuilders LLC
-            </span>
+            <Link to="/" className="inline-block">
+              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-12 w-auto rounded" />
+            </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
               Dependable property maintenance and preservation services for homeowners, investors,
               and property managers.
             </p>
+            <a
+              href="https://www.facebook.com/profile.php?id=61587243430491"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Facebook size={18} />
+              <span>Follow us on Facebook</span>
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -47,17 +56,17 @@ const Footer = () => {
               Contact
             </h4>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
+              <a href="tel:+16175163443" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} className="text-primary" />
-                <span>(555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span>+1 617-516-3443</span>
+              </a>
+              <a href="mailto:xgenhomebuilders@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail size={16} className="text-primary" />
-                <span>info@xgenhomebuilders.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={16} className="text-primary" />
-                <span>Serving the Greater Metro Area</span>
+                <span>xgenhomebuilders@gmail.com</span>
+              </a>
+              <div className="flex items-start gap-2">
+                <MapPin size={16} className="text-primary mt-0.5" />
+                <span>64 Woodlawn Rd, Randolph, MA 02368</span>
               </div>
             </div>
           </div>

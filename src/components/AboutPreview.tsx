@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import teamPlanning from "@/assets/team-planning.jpg";
+import aboutCrew from "@/assets/about-crew.jpg";
 
 const AboutPreview = () => {
   return (
@@ -12,7 +12,7 @@ const AboutPreview = () => {
             viewport={{ once: true }}
             className="rounded-xl overflow-hidden"
           >
-            <img src={teamPlanning} alt="XGen team at property site" className="w-full h-auto" loading="lazy" />
+            <img src={aboutCrew} alt="XGen team at property site" className="w-full h-auto" loading="lazy" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
