@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook } from "lucide-react";
-import xgenLogo from "@/assets/xgen-logo.jpg";
+import xgenLogo from "@/assets/xgen-logo.png";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block">
-              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-12 w-auto rounded" />
+              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-16 w-auto" />
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
               Dependable property maintenance and preservation services for homeowners, investors,

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import xgenLogo from "@/assets/xgen-logo.jpg";
+import xgenLogo from "@/assets/xgen-logo.png";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-10 w-auto rounded" />
+          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-14 w-auto" />
         </Link>
 
         {/* Desktop */}
