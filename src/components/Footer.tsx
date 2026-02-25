@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block">
-              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-16 w-auto" />
+              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-24 w-auto brightness-110" />
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
               Dependable property maintenance and preservation services for homeowners, investors,
