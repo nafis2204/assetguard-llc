@@ -9,8 +9,8 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroCrew} alt="Construction crew working" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+        <div className="absolute inset-0 bg-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       </div>
 
       <div className="container mx-auto relative z-10 pt-24">
@@ -20,7 +20,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/15 text-primary text-sm font-semibold mb-6 border border-primary/30">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
               Property Maintenance & Preservation
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-foreground leading-tight mb-6">

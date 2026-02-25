@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block">
-              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-24 w-auto brightness-110" />
+              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-24 w-auto" />
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
               Dependable property maintenance and preservation services for homeowners, investors,
@@ -38,6 +38,7 @@ const Footer = () => {
                 { label: "Services", to: "/services" },
                 { label: "About", to: "/about" },
                 { label: "Contact", to: "/contact" },
+                { label: "Become a Vendor", to: "/become-a-vendor" },
               ].map((link) => (
                 <Link
                   key={link.to}
