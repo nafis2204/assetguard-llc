@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-14 w-auto" />
+          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-20 md:h-24 w-auto brightness-110" />
         </Link>
 
         {/* Desktop */}
