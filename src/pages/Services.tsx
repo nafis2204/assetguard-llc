@@ -5,7 +5,7 @@ import {
   Wrench, DoorOpen, Lamp, ShieldCheck,
   Wind, Zap, Droplets,
   PaintBucket, Paintbrush, Layers, GlassWater,
-  Lightbulb,
+  Lightbulb, Trash2, TreePine,
 } from "lucide-react";
 import electricianWork from "@/assets/electrician-work.jpg";
 import painterWork from "@/assets/painter-work.jpg";
@@ -47,6 +47,8 @@ const categories = [
     image: flooringWork,
     items: [
       { icon: Lightbulb, name: "Signage & Lighting", points: ["Exterior lighting", "Sign installation", "Pathway lights", "Security lighting"] },
+      { icon: Trash2, name: "Trash Out", points: ["Property cleanouts", "Debris removal", "Junk hauling", "Move-out cleaning"] },
+      { icon: TreePine, name: "Landscaping", points: ["Lawn mowing & edging", "Bush & tree trimming", "Seasonal cleanup", "Mulching & bed care"] },
     ],
   },
 ];

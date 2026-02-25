@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
   Wrench, Wind, PaintBucket, Paintbrush, DoorOpen, ShieldCheck,
-  GlassWater, Layers, Zap, Droplets, Lightbulb, Lamp,
+  GlassWater, Layers, Zap, Droplets, Lightbulb, Lamp, Trash2, TreePine,
 } from "lucide-react";
 
 const services = [
@@ -17,6 +17,8 @@ const services = [
   { icon: Droplets, title: "Plumbing", desc: "Leak fixes and system repairs" },
   { icon: Lightbulb, title: "Signage & Lighting", desc: "Exterior/interior lighting solutions" },
   { icon: Lamp, title: "Fixtures", desc: "Installation and replacement services" },
+  { icon: Trash2, title: "Trash Out", desc: "Property cleanout and debris removal" },
+  { icon: TreePine, title: "Landscaping", desc: "Lawn care and outdoor maintenance" },
 ];
 
 const ServicesOverview = () => {
