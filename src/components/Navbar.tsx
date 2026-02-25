@@ -27,16 +27,16 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled ? "bg-background/95 backdrop-blur-md shadow-md border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-4">
+      <div className="container mx-auto flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-2">
-          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-20 md:h-24 w-auto brightness-110" />
+          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-20 md:h-24 w-auto" />
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -48,6 +48,9 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          <Button variant="outline" asChild>
+            <Link to="/become-a-vendor">Become a Vendor</Link>
+          </Button>
           <Button asChild>
             <Link to="/contact">Request a Quote</Link>
           </Button>
@@ -78,6 +81,9 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <Button variant="outline" asChild className="w-full">
+              <Link to="/become-a-vendor">Become a Vendor</Link>
+            </Button>
             <Button asChild className="w-full">
               <Link to="/contact">Request a Quote</Link>
             </Button>
