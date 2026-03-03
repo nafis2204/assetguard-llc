@@ -74,7 +74,13 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} XGen HomeBuilders LLC. All rights reserved.
+          <p>© {new Date().getFullYear()} XGen HomeBuilders LLC. All rights reserved.</p>
+          <p className="mt-1">
+            Developed by{" "}
+            <a href="https://rosetech.dev" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+              RoseTech Solutions Ltd
+            </a>
+          </p>
         </div>
       </div>
     </footer>
