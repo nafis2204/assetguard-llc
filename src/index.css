@@ -7,48 +7,48 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 150 10% 12%;
+    --foreground: 0 0% 15%;
 
-    --card: 140 20% 97%;
-    --card-foreground: 150 10% 12%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 10% 12%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 152 55% 28%;
+    --primary: 38 92% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 140 15% 95%;
-    --secondary-foreground: 150 10% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 140 10% 92%;
-    --muted-foreground: 150 5% 42%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 152 55% 28%;
+    --accent: 38 92% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 140 10% 88%;
-    --input: 140 10% 88%;
-    --ring: 152 55% 28%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 38 92% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 140 20% 97%;
-    --sidebar-foreground: 150 10% 12%;
-    --sidebar-primary: 152 55% 28%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 38 92% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 140 10% 92%;
-    --sidebar-accent-foreground: 150 10% 12%;
-    --sidebar-border: 140 10% 88%;
-    --sidebar-ring: 152 55% 28%;
+    --sidebar-accent: 0 0% 93%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 38 92% 50%;
 
     /* Custom tokens */
-    --gradient-cta: linear-gradient(135deg, hsl(152 55% 28%), hsl(142 50% 22%));
-    --shadow-card: 0 4px 24px -4px hsla(150, 10%, 0%, 0.08);
-    --shadow-glow: 0 0 20px hsla(152, 55%, 28%, 0.15);
+    --gradient-cta: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 90% 45%));
+    --shadow-card: 0 4px 24px -4px hsla(0, 0%, 0%, 0.08);
+    --shadow-glow: 0 0 20px hsla(38, 92%, 50%, 0.15);
   }
 }
 
@@ -68,7 +68,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-600;
   }
 
   .glow-card {
@@ -76,7 +76,7 @@
   }
 
   .glow-card:hover {
-    box-shadow: 0 0 30px hsla(152, 55%, 28%, 0.1);
-    border-color: hsl(152 55% 28% / 0.3);
+    box-shadow: 0 0 30px hsla(38, 92%, 50%, 0.1);
+    border-color: hsl(38 92% 50% / 0.3);
   }
 }
