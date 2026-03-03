@@ -26,17 +26,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-md border-b border-border" : "bg-transparent"
-      }`}
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300 rounded-2xl bg-background/70 backdrop-blur-xl shadow-lg border border-border/50"
     >
-      <div className="container mx-auto flex items-center justify-between py-3">
+      <div className="flex items-center justify-between px-4 py-2">
         <Link to="/" className="flex items-center gap-2">
-          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-20 md:h-24 w-auto" />
+          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-10 md:h-12 w-auto" />
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -48,10 +46,10 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <Button variant="outline" asChild>
+          <Button variant="outline" size="sm" asChild>
             <Link to="/become-a-vendor">Become a Vendor</Link>
           </Button>
-          <Button asChild>
+          <Button size="sm" asChild>
             <Link to="/contact">Request a Quote</Link>
           </Button>
         </div>
@@ -68,26 +66,24 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border">
-          <div className="container mx-auto py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`text-base font-medium py-2 transition-colors hover:text-primary ${
-                  location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button variant="outline" asChild className="w-full">
-              <Link to="/become-a-vendor">Become a Vendor</Link>
-            </Button>
-            <Button asChild className="w-full">
-              <Link to="/contact">Request a Quote</Link>
-            </Button>
-          </div>
+        <div className="md:hidden border-t border-border/50 px-4 py-4 flex flex-col gap-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`text-sm font-medium py-1.5 transition-colors hover:text-primary ${
+                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Button variant="outline" size="sm" asChild className="w-full">
+            <Link to="/become-a-vendor">Become a Vendor</Link>
+          </Button>
+          <Button size="sm" asChild className="w-full">
+            <Link to="/contact">Request a Quote</Link>
+          </Button>
         </div>
       )}
     </nav>
