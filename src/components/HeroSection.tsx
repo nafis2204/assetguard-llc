@@ -8,7 +8,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroCrew} alt="Construction crew working" className="w-full h-full object-cover" />
+        <img src={heroCrew} alt="Restoration crew on site" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/85" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       </div>
@@ -21,16 +21,17 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
-              Property Maintenance & Preservation
+              Property Restoration & Preservation
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-foreground leading-tight mb-6">
-              Reliable Property{" "}
-              <span className="text-gradient">Maintenance</span> &{" "}
-              <span className="text-gradient">Preservation</span> Services
+              Expert Property{" "}
+              <span className="text-gradient">Restoration</span> &{" "}
+              <span className="text-gradient">Preservation</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              From minor repairs to full maintenance coordination, XGen HomeBuilders LLC delivers
-              high-quality workmanship with fast turnaround and responsive support.
+              From essential repairs to complete restoration coordination, Evergreen Homes
+              Restoration LLC delivers exceptional craftsmanship with dependable turnaround
+              across New York and California.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" asChild>

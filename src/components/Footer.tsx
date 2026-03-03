@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import xgenLogo from "@/assets/xgen-logo.png";
 
 const Footer = () => {
@@ -10,21 +10,12 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block">
-              <img src={xgenLogo} alt="XGen HomeBuilders" className="h-24 w-auto" />
+              <img src={xgenLogo} alt="Evergreen Homes Restoration" className="h-24 w-auto" />
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
-              Dependable property maintenance and preservation services for homeowners, investors,
-              and property managers.
+              Professional property restoration and preservation services for homeowners,
+              investors, and property managers across New York and California.
             </p>
-            <a
-              href="https://www.facebook.com/profile.php?id=61587243430491"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Facebook size={18} />
-              <span>Follow us on Facebook</span>
-            </a>
           </div>
 
           {/* Quick Links */}
@@ -57,24 +48,28 @@ const Footer = () => {
               Contact
             </h4>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <a href="tel:+16175163443" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="tel:+12067450913" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} className="text-primary" />
-                <span>+1 617-516-3443</span>
+                <span>(206) 745-0913</span>
               </a>
-              <a href="mailto:xgenhomebuilders@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="mailto:fayej@evergreenhomesrestoration.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail size={16} className="text-primary" />
-                <span>xgenhomebuilders@gmail.com</span>
+                <span>fayej@evergreenhomesrestoration.com</span>
               </a>
               <div className="flex items-start gap-2">
                 <MapPin size={16} className="text-primary mt-0.5" />
-                <span>64 Woodlawn Rd, Randolph, MA 02368</span>
+                <span>2113 Grand Ave, Bronx, NY 10453</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin size={16} className="text-primary mt-0.5" />
+                <span>453 S Spring St, Los Angeles, CA 90013</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-border text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} XGen HomeBuilders LLC. All rights reserved.
+          © {new Date().getFullYear()} Evergreen Homes Restoration LLC. All rights reserved.
         </div>
       </div>
     </footer>
