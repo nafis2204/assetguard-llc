@@ -12,7 +12,7 @@ const AboutPreview = () => {
             viewport={{ once: true }}
             className="rounded-xl overflow-hidden"
           >
-            <img src={aboutCrew} alt="XGen team at property site" className="w-full h-auto" loading="lazy" />
+            <img src={aboutCrew} alt="Evergreen restoration team on site" className="w-full h-auto" loading="lazy" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -20,13 +20,13 @@ const AboutPreview = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-foreground mb-6">
-              About <span className="text-gradient">XGen HomeBuilders</span> LLC
+              About <span className="text-gradient">Evergreen Homes Restoration</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              XGen HomeBuilders LLC provides dependable property maintenance and preservation
-              services for homeowners, investors, and property managers. We focus on quality
-              execution, fast service, and clear communication to keep properties secure,
-              functional, and move-in ready.
+              Evergreen Homes Restoration LLC specializes in comprehensive property restoration
+              and preservation services for homeowners, investors, and property managers. We
+              prioritize expert execution, responsive scheduling, and transparent communication
+              to ensure every property is protected, restored, and tenant-ready.
             </p>
           </motion.div>
         </div>

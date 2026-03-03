@@ -3,11 +3,11 @@ import { Lightbulb, Award, Clock, Headphones, Users } from "lucide-react";
 import teamPlanning from "@/assets/team-planning.jpg";
 
 const benefits = [
-  { icon: Lightbulb, title: "Creative Ideas", desc: "Smart solutions tailored to your property" },
-  { icon: Award, title: "High Quality", desc: "Skilled workmanship with attention to detail" },
-  { icon: Clock, title: "Fast Processing", desc: "Quick scheduling and rapid turnaround" },
-  { icon: Headphones, title: "24/7 Support", desc: "Responsive communication anytime" },
-  { icon: Users, title: "Reliable Crews", desc: "Professional teams that get the job done" },
+  { icon: Lightbulb, title: "Innovative Approaches", desc: "Tailored restoration strategies for every property" },
+  { icon: Award, title: "Proven Quality", desc: "Expert craftsmanship backed by years of experience" },
+  { icon: Clock, title: "Rapid Response", desc: "Efficient scheduling with prompt project delivery" },
+  { icon: Headphones, title: "Always Available", desc: "Round-the-clock support when you need us most" },
+  { icon: Users, title: "Trusted Teams", desc: "Vetted professionals committed to excellence" },
 ];
 
 const WhyChooseUs = () => {
@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-foreground mb-8">
-              Why Choose <span className="text-gradient">XGen</span>
+              Why Choose <span className="text-gradient">Evergreen</span>
             </h2>
             <div className="flex flex-col gap-5">
               {benefits.map((b, i) => (
@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="rounded-xl overflow-hidden shadow-2xl"
           >
-            <img src={teamPlanning} alt="Team reviewing work plan" className="w-full h-auto" loading="lazy" />
+            <img src={teamPlanning} alt="Team coordinating restoration project" className="w-full h-auto" loading="lazy" />
           </motion.div>
         </div>
       </div>
