@@ -37,22 +37,53 @@ const BecomeAVendor = () => {
   const [wcInsurance, setWcInsurance] = useState(false);
   const [w9File, setW9File] = useState<File | null>(null);
   const [insuranceFile, setInsuranceFile] = useState<File | null>(null);
+  const [tradeCategory, setTradeCategory] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      toast({
-        title: "Application Submitted!",
-        description: "We'll review your application and get back to you within 48 hours.",
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    if (w9File) formData.append("w9_document", w9File);
+    if (insuranceFile) formData.append("insurance_certificate", insuranceFile);
+    formData.append("gl_insurance", glInsurance ? "Yes" : "No");
+    formData.append("wc_insurance", wcInsurance ? "Yes" : "No");
+    formData.append("trade_category", tradeCategory);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xwvrelne", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
       });
-      (e.target as HTMLFormElement).reset();
-      setGlInsurance(false);
-      setWcInsurance(false);
-      setW9File(null);
-      setInsuranceFile(null);
-    }, 1200);
+
+      if (response.ok) {
+        toast({
+          title: "Application Submitted!",
+          description: "We'll review your application and get back to you within 48 hours.",
+        });
+        (e.target as HTMLFormElement).reset();
+        setGlInsurance(false);
+        setWcInsurance(false);
+        setW9File(null);
+        setInsuranceFile(null);
+        setTradeCategory("");
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "Something went wrong. Please try again or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Submission Failed",
+        description: "Network error. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -86,21 +117,21 @@ const BecomeAVendor = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name *</Label>
-                  <Input id="firstName" placeholder="John" required maxLength={50} className="rounded-lg" />
+                  <Input id="firstName" name="first_name" placeholder="John" required maxLength={50} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lastName">Last Name *</Label>
-                  <Input id="lastName" placeholder="Doe" required maxLength={50} className="rounded-lg" />
+                  <Input id="lastName" name="last_name" placeholder="Doe" required maxLength={50} className="rounded-lg" />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="vendorPhone">Phone Number *</Label>
-                  <Input id="vendorPhone" type="tel" placeholder="(555) 123-4567" required maxLength={20} className="rounded-lg" />
+                  <Input id="vendorPhone" name="phone" type="tel" placeholder="(555) 123-4567" required maxLength={20} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="vendorEmail">Email Address *</Label>
-                  <Input id="vendorEmail" type="email" placeholder="john@company.com" required maxLength={200} className="rounded-lg" />
+                  <Input id="vendorEmail" name="email" type="email" placeholder="john@company.com" required maxLength={200} className="rounded-lg" />
                 </div>
               </div>
             </div>
@@ -115,29 +146,29 @@ const BecomeAVendor = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="companyName">Company Name *</Label>
-                <Input id="companyName" placeholder="ABC Plumbing LLC" required maxLength={100} className="rounded-lg" />
+                <Input id="companyName" name="company_name" placeholder="ABC Plumbing LLC" required maxLength={100} className="rounded-lg" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="streetAddress">Street Address *</Label>
-                <Input id="streetAddress" placeholder="123 Main St" required maxLength={200} className="rounded-lg" />
+                <Input id="streetAddress" name="street_address" placeholder="123 Main St" required maxLength={200} className="rounded-lg" />
               </div>
               <div className="grid sm:grid-cols-3 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="city">City *</Label>
-                  <Input id="city" placeholder="Boston" required maxLength={100} className="rounded-lg" />
+                  <Input id="city" name="city" placeholder="Boston" required maxLength={100} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state">State *</Label>
-                  <Input id="state" placeholder="MA" required maxLength={50} className="rounded-lg" />
+                  <Input id="state" name="state" placeholder="MA" required maxLength={50} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="zip">Zip Code *</Label>
-                  <Input id="zip" placeholder="02368" required maxLength={10} className="rounded-lg" />
+                  <Input id="zip" name="zip" placeholder="02368" required maxLength={10} className="rounded-lg" />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="website">Website URL</Label>
-                <Input id="website" type="url" placeholder="https://yourcompany.com" maxLength={200} className="rounded-lg" />
+                <Input id="website" name="website" type="url" placeholder="https://yourcompany.com" maxLength={200} className="rounded-lg" />
               </div>
             </div>
 
@@ -152,11 +183,11 @@ const BecomeAVendor = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="ein">EIN (Tax ID Number) *</Label>
-                  <Input id="ein" placeholder="XX-XXXXXXX" required maxLength={20} className="rounded-lg" />
+                  <Input id="ein" name="ein" placeholder="XX-XXXXXXX" required maxLength={20} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label>Trade / Service Category *</Label>
-                  <Select required>
+                  <Select required value={tradeCategory} onValueChange={setTradeCategory}>
                     <SelectTrigger className="rounded-lg">
                       <SelectValue placeholder="Select your trade" />
                     </SelectTrigger>
@@ -187,6 +218,7 @@ const BecomeAVendor = () => {
                 <Label htmlFor="serviceArea">Counties / Regions Served *</Label>
                 <Textarea
                   id="serviceArea"
+                  name="service_area"
                   placeholder="e.g. Norfolk County, Suffolk County, Plymouth County..."
                   rows={3}
                   required
