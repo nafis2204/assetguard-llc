@@ -47,7 +47,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Button variant="outline" size="sm" asChild>
-            <Link to="/become-a-vendor">Become a Crew</Link>
+            <Link to="/become-a-vendor">Become a Vendor</Link>
           </Button>
           <Button size="sm" asChild>
             <Link to="/contact">Request a Quote</Link>
