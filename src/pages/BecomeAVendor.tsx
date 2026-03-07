@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
+// import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, Building2, FileText, ShieldCheck } from "lucide-react";
+import { /*Upload,*/ Building2, FileText, ShieldCheck } from "lucide-react";
 
 const tradeCategories = [
   "Plumbing",
@@ -33,10 +33,10 @@ const tradeCategories = [
 const BecomeAVendor = () => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
-  const [glInsurance, setGlInsurance] = useState(false);
-  const [wcInsurance, setWcInsurance] = useState(false);
-  const [w9File, setW9File] = useState<File | null>(null);
-  const [insuranceFile, setInsuranceFile] = useState<File | null>(null);
+  // const [glInsurance, setGlInsurance] = useState(false);
+  // const [wcInsurance, setWcInsurance] = useState(false);
+  // const [w9File, setW9File] = useState<File | null>(null);
+  // const [insuranceFile, setInsuranceFile] = useState<File | null>(null);
   const [tradeCategory, setTradeCategory] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,10 +44,10 @@ const BecomeAVendor = () => {
     setSubmitting(true);
 
     const formData = new FormData(e.target as HTMLFormElement);
-    if (w9File) formData.append("w9_document", w9File);
-    if (insuranceFile) formData.append("insurance_certificate", insuranceFile);
-    formData.append("gl_insurance", glInsurance ? "Yes" : "No");
-    formData.append("wc_insurance", wcInsurance ? "Yes" : "No");
+    // if (w9File) formData.append("w9_document", w9File);
+    // if (insuranceFile) formData.append("insurance_certificate", insuranceFile);
+    // formData.append("gl_insurance", glInsurance ? "Yes" : "No");
+    // formData.append("wc_insurance", wcInsurance ? "Yes" : "No");
     formData.append("trade_category", tradeCategory);
 
     try {
@@ -63,10 +63,10 @@ const BecomeAVendor = () => {
           description: "We'll review your application and get back to you within 48 hours.",
         });
         (e.target as HTMLFormElement).reset();
-        setGlInsurance(false);
-        setWcInsurance(false);
-        setW9File(null);
-        setInsuranceFile(null);
+        // setGlInsurance(false);
+        // setWcInsurance(false);
+        // setW9File(null);
+        // setInsuranceFile(null);
         setTradeCategory("");
       } else {
         toast({
