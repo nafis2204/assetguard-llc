@@ -210,8 +210,8 @@ const BecomeAVendor = () => {
                   <Switch id="wc-insurance" checked={wcInsurance} onCheckedChange={setWcInsurance} />
                 </div>
               </div>
-            </div>
             */}
+            </div>
             {/* Service Area */}
             <div className="space-y-5">
               <h2 className="text-xl font-heading font-bold text-foreground">Service Area</h2>
