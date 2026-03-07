@@ -199,6 +199,7 @@ const BecomeAVendor = () => {
                   </Select>
                 </div>
               </div>
+              {/*
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="flex items-center justify-between rounded-lg border border-border bg-card p-4">
                   <Label htmlFor="gl-insurance" className="cursor-pointer">General Liability Insurance</Label>
@@ -210,7 +211,7 @@ const BecomeAVendor = () => {
                 </div>
               </div>
             </div>
-
+            */}
             {/* Service Area */}
             <div className="space-y-5">
               <h2 className="text-xl font-heading font-bold text-foreground">Service Area</h2>
@@ -227,8 +228,8 @@ const BecomeAVendor = () => {
                 />
               </div>
             </div>
-
-            {/* Document Upload */}
+            
+            {/* Document Upload
             <div className="space-y-5">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -273,7 +274,7 @@ const BecomeAVendor = () => {
                 </label>
               </div>
             </div>
-
+ */}
             <Button type="submit" size="lg" className="w-full text-base font-semibold rounded-lg" disabled={submitting}>
               {submitting ? "Submitting..." : "Submit Application"}
             </Button>
