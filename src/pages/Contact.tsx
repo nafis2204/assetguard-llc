@@ -130,9 +130,9 @@ const Contact = () => {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <div className="bg-card border border-border rounded-lg p-6 space-y-5">
                 <h3 className="font-heading font-bold text-foreground">Contact Info</h3>
-                <a href="tel:+16175163443" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                <a href="tel:+17818054721" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
                   <Phone size={18} className="text-primary" />
-                  <span className="text-muted-foreground">+1 617-516-3443</span>
+                  <span className="text-muted-foreground">+1 (781) 805-4721</span>
                 </a>
                 <a href="mailto:xgenhomebuilders@gmail.com" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
                   <Mail size={18} className="text-primary" />
