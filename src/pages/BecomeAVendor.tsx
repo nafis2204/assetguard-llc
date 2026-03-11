@@ -92,7 +92,7 @@ const BecomeAVendor = () => {
         <div className="container mx-auto max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-foreground mb-4">
-              Become a <span className="text-gradient">Vendor</span>
+              Become a <span className="text-gradient">Partner</span>
             </h1>
             <p className="text-muted-foreground max-w-lg mx-auto">
               Join XGen HomeBuilders' trusted vendor network. Complete the application below and our team will review your credentials.
