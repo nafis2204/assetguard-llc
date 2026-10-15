@@ -25,7 +25,7 @@ const About = () => {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="text-2xl font-heading font-bold text-foreground mb-4">Our Mission</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                At XGen HomeBuilders LLC, our mission is to provide property owners, investors, and
+                At RapidFix LLC, our mission is to provide property owners, investors, and
                 managers with dependable maintenance and preservation services they can count on.
                 We combine skilled labor with efficient coordination to keep every property secure,
                 functional, and move-in ready.
@@ -37,7 +37,7 @@ const About = () => {
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="rounded-xl overflow-hidden">
-              <img src={teamPlanning} alt="XGen team" className="w-full h-auto" loading="lazy" />
+              <img src={teamPlanning} alt="RapidFix team" className="w-full h-auto" loading="lazy" />
             </motion.div>
           </div>
         </div>

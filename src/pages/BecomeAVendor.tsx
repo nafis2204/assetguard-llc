@@ -95,7 +95,7 @@ const BecomeAVendor = () => {
               Become a <span className="text-gradient">Partner</span>
             </h1>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              Join XGen HomeBuilders' trusted vendor network. Complete the application below and our team will review your credentials.
+              Join RapidFix LLC's trusted vendor network. Complete the application below and our team will review your credentials.
             </p>
           </motion.div>
 
@@ -155,15 +155,15 @@ const BecomeAVendor = () => {
               <div className="grid sm:grid-cols-3 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="city">City *</Label>
-                  <Input id="city" name="city" placeholder="Boston" required maxLength={100} className="rounded-lg" />
+                  <Input id="city" name="city" placeholder="El Paso" required maxLength={100} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state">State *</Label>
-                  <Input id="state" name="state" placeholder="MA" required maxLength={50} className="rounded-lg" />
+                  <Input id="state" name="state" placeholder="TX" required maxLength={50} className="rounded-lg" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="zip">Zip Code *</Label>
-                  <Input id="zip" name="zip" placeholder="02368" required maxLength={10} className="rounded-lg" />
+                  <Input id="zip" name="zip" placeholder="79902" required maxLength={10} className="rounded-lg" />
                 </div>
               </div>
               <div className="space-y-2">
@@ -220,7 +220,7 @@ const BecomeAVendor = () => {
                 <Textarea
                   id="serviceArea"
                   name="service_area"
-                  placeholder="e.g. Norfolk County, Suffolk County, Plymouth County..."
+                  placeholder="e.g. El Paso County, Hudspeth County..."
                   rows={3}
                   required
                   maxLength={500}

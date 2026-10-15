@@ -16,7 +16,7 @@ const FinalCTA = () => {
             Need fast, professional property maintenance?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Let XGen handle your property needs with speed, quality, and reliability.
+            Let RapidFix handle your property needs with speed, quality, and reliability.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
