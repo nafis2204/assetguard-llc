@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Facebook } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 import { brand } from "@/lib/brand";
 
 const Footer = () => {
@@ -60,6 +60,10 @@ const Footer = () => {
               <a href={brand.phoneHref} className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} className="text-primary" />
                 <span>{brand.phone}</span>
+              </a>
+              <a href={brand.emailHref} className="flex items-center gap-2 hover:text-primary transition-colors">
+                <Mail size={16} className="text-primary" />
+                <span>{brand.email}</span>
               </a>
               <a href={brand.maps} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-primary transition-colors">
                 <MapPin size={16} className="text-primary mt-0.5 shrink-0" />

@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Facebook, MapPin, ArrowUpRight } from "lucide-react";
+import { Phone, Mail, Facebook, MapPin, ArrowUpRight } from "lucide-react";
 import { brand } from "@/lib/brand";
 
 const serviceOptions = [
@@ -134,6 +134,10 @@ const Contact = () => {
                 <a href={brand.phoneHref} className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
                   <Phone size={18} className="text-primary shrink-0" />
                   <span>{brand.phone}</span>
+                </a>
+                <a href={brand.emailHref} className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                  <Mail size={18} className="text-primary shrink-0" />
+                  <span className="break-all">{brand.email}</span>
                 </a>
                 <a href={brand.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
                   <Facebook size={18} className="text-primary shrink-0" />
