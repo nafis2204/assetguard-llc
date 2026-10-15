@@ -1,5 +1,5 @@
 # RapidFix refresh
-- [ ] Update company branding and logo throughout the site.
-- [ ] Replace contact information and add Google Maps links.
-- [ ] Refine header, home page layout, and orange theme.
-- [ ] Verify all pages and mobile navigation.
+- [x] Update company branding and logo throughout the site.
+- [x] Replace contact information and add Google Maps links.
+- [x] Refine header, home page layout, and orange theme.
+- [x] Verify all pages and mobile navigation.
