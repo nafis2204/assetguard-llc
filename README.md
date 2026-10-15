@@ -1,6 +1,6 @@
-# XGen HomeBuilders LLC
+# RapidFix LLC
 
-Official website for XGen HomeBuilders LLC — Property Maintenance & Preservation.
+Official website for RapidFix LLC — Property Maintenance & Preservation in El Paso, TX.
 
 ## Getting Started
 
@@ -20,4 +20,4 @@ npm run build
 - shadcn/ui
 
 ## License
-© XGen HomeBuilders LLC. All rights reserved.
+© RapidFix LLC. All rights reserved.
