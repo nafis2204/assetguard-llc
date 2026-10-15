@@ -12,7 +12,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Facebook, MapPin, ArrowUpRight } from "lucide-react";
+import { brand } from "@/lib/brand";
 
 const serviceOptions = [
   "Handyman",
@@ -128,20 +129,23 @@ const Contact = () => {
 
             {/* Contact info */}
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
-              <div className="bg-card border border-border rounded-lg p-6 space-y-5">
-                <h3 className="font-heading font-bold text-foreground">Contact Info</h3>
-                <a href="tel:+17818054721" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
-                  <Phone size={18} className="text-primary" />
-                  <span className="text-muted-foreground">+1 (781) 805-4721</span>
+              <div className="border-t-2 border-primary pt-6 space-y-6">
+                <h3 className="font-heading font-bold text-foreground">Contact RapidFix</h3>
+                <a href={brand.phoneHref} className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                  <Phone size={18} className="text-primary shrink-0" />
+                  <span>{brand.phone}</span>
                 </a>
-                <a href="mailto:xgenhomebuilders@gmail.com" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
-                  <Mail size={18} className="text-primary" />
-                  <span className="text-muted-foreground">xgenhomebuilders@gmail.com</span>
+                <a href={brand.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                  <Facebook size={18} className="text-primary shrink-0" />
+                  <span>RapidFix on Facebook</span>
                 </a>
-                <div className="flex items-start gap-3 text-sm">
-                  <MapPin size={18} className="text-primary mt-0.5" />
-                  <span className="text-muted-foreground">64 Woodlawn Rd, Randolph, MA 02368</span>
-                </div>
+                <a href={brand.maps} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-sm hover:text-primary transition-colors">
+                  <MapPin size={18} className="text-primary mt-0.5 shrink-0" />
+                  <span>{brand.address}</span>
+                </a>
+                <Button variant="outline" asChild className="w-full">
+                  <a href={brand.maps} target="_blank" rel="noopener noreferrer">Get Directions <ArrowUpRight size={16} /></a>
+                </Button>
               </div>
             </motion.div>
           </div>

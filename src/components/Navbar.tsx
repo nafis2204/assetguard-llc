@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import xgenLogo from "@/assets/xgen-logo.png";
+import { brand } from "@/lib/brand";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -12,25 +12,19 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => setMobileOpen(false), [location]);
 
   return (
     <nav
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300 rounded-2xl bg-background/70 backdrop-blur-xl shadow-lg border border-border/50"
+      aria-label="Main navigation"
+      className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300 rounded-2xl bg-background/90 backdrop-blur-xl shadow-lg border border-border/50"
     >
       <div className="flex items-center justify-between px-4 py-2">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={xgenLogo} alt="XGen HomeBuilders" className="h-10 md:h-12 w-auto" />
+        <Link to="/" aria-label="RapidFix LLC home" className="flex items-center shrink-0">
+          <img src={brand.logo} alt={brand.name} className="w-32 md:w-36 h-16 object-contain" />
         </Link>
 
         {/* Desktop */}
@@ -55,13 +49,16 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </Button>
       </div>
 
       {/* Mobile menu */}
