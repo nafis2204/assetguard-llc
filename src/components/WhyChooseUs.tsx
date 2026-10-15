@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-foreground mb-8">
-              Why Choose <span className="text-gradient">XGen</span>
+              Why Choose <span className="text-gradient">RapidFix</span>
             </h2>
             <div className="flex flex-col gap-5">
               {benefits.map((b, i) => (
