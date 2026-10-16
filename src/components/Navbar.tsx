@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { brand } from "@/lib/brand";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -24,7 +24,7 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between px-4 py-2">
         <Link to="/" aria-label="RapidFix LLC home" className="flex items-center shrink-0">
-          <img src={brand.logo} alt={brand.name} className="w-32 md:w-36 h-16 object-contain" />
+          <Logo />
         </Link>
 
         {/* Desktop */}
@@ -76,7 +76,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Button variant="outline" size="sm" asChild className="w-full">
-            <Link to="/become-a-vendor">Become a Vendor</Link>
+            <Link to="/become-a-vendor">Become a Partner</Link>
           </Button>
           <Button size="sm" asChild className="w-full">
             <Link to="/contact">Request a Quote</Link>

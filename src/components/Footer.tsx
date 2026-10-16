@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 import { brand } from "@/lib/brand";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
   return (
@@ -9,8 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <Link to="/" className="inline-block">
-              <img src={brand.logo} alt={brand.name} className="w-48 h-auto" />
+            <Link to="/" aria-label="RapidFix LLC home" className="inline-block">
+              <Logo size="lg" />
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
               Dependable property maintenance and preservation services for homeowners, investors,
@@ -38,7 +39,7 @@ const Footer = () => {
                 { label: "Services", to: "/services" },
                 { label: "About", to: "/about" },
                 { label: "Contact", to: "/contact" },
-                { label: "Become a Vendor", to: "/become-a-vendor" },
+                { label: "Become a Partner", to: "/become-a-vendor" },
               ].map((link) => (
                 <Link
                   key={link.to}

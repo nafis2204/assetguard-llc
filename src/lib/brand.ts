@@ -1,8 +1,8 @@
-import logo from "@/assets/rapidfix-logo.jpg.asset.json";
+import logo from "@/assets/rapidfix-logo.png";
 
 export const brand = {
   name: "RapidFix LLC",
-  logo: logo.url,
+  logo,
   phone: "+1 (915) 465-4014",
   phoneHref: "tel:+19154654014",
   email: "partnership@getrapidfix.com",

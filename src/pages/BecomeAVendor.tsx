@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { submitForm } from "@/lib/submitForm";
 import { /*Upload,*/ Building2, FileText, ShieldCheck } from "lucide-react";
 
 const tradeCategories = [
@@ -43,46 +44,30 @@ const BecomeAVendor = () => {
     e.preventDefault();
     setSubmitting(true);
 
-    const formData = new FormData(e.target as HTMLFormElement);
-    // if (w9File) formData.append("w9_document", w9File);
-    // if (insuranceFile) formData.append("insurance_certificate", insuranceFile);
-    // formData.append("gl_insurance", glInsurance ? "Yes" : "No");
-    // formData.append("wc_insurance", wcInsurance ? "Yes" : "No");
-    formData.append("trade_category", tradeCategory);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const fields: Record<string, string> = {};
+    formData.forEach((v, k) => {
+      if (typeof v === "string" && k !== "_hp") fields[k] = v;
+    });
+    fields.trade_category = tradeCategory;
 
-    try {
-      const response = await fetch("https://formspree.io/f/xwvrelne", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+    const result = await submitForm("vendor", fields, String(formData.get("_hp") ?? ""));
+    setSubmitting(false);
+
+    if (result.ok) {
+      toast({
+        title: "Application Submitted!",
+        description: "We'll review your application and get back to you within 48 hours.",
       });
-
-      if (response.ok) {
-        toast({
-          title: "Application Submitted!",
-          description: "We'll review your application and get back to you within 48 hours.",
-        });
-        (e.target as HTMLFormElement).reset();
-        // setGlInsurance(false);
-        // setWcInsurance(false);
-        // setW9File(null);
-        // setInsuranceFile(null);
-        setTradeCategory("");
-      } else {
-        toast({
-          title: "Submission Failed",
-          description: "Something went wrong. Please try again or contact us directly.",
-          variant: "destructive",
-        });
-      }
-    } catch {
+      form.reset();
+      setTradeCategory("");
+    } else {
       toast({
         title: "Submission Failed",
-        description: "Network error. Please check your connection and try again.",
+        description: result.error,
         variant: "destructive",
       });
-    } finally {
-      setSubmitting(false);
     }
   };
 
@@ -106,6 +91,8 @@ const BecomeAVendor = () => {
             onSubmit={handleSubmit}
             className="space-y-10"
           >
+            {/* Honeypot: hidden from humans, bots fill it */}
+            <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             {/* Contact Information */}
             <div className="space-y-5">
               <div className="flex items-center gap-3 mb-2">

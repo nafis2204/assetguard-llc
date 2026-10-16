@@ -14,6 +14,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Facebook, MapPin, ArrowUpRight } from "lucide-react";
 import { brand } from "@/lib/brand";
+import { submitForm } from "@/lib/submitForm";
 
 const serviceOptions = [
   "Handyman",
@@ -35,17 +36,45 @@ const Contact = () => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [service, setService] = useState("");
+  const [contactMethod, setContactMethod] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+
+    const result = await submitForm(
+      "contact",
+      {
+        name: String(fd.get("name") ?? ""),
+        email: String(fd.get("email") ?? ""),
+        phone: String(fd.get("phone") ?? ""),
+        property_location: String(fd.get("location") ?? ""),
+        service_needed: service,
+        preferred_contact_method: contactMethod,
+        message: String(fd.get("message") ?? ""),
+      },
+      String(fd.get("_hp") ?? "")
+    );
+    setSubmitting(false);
+
+    if (result.ok) {
       toast({
         title: "Request Sent!",
         description: "We'll get back to you within 24 hours.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+      form.reset();
+      setService("");
+      setContactMethod("");
+    } else {
+      toast({
+        title: "Couldn't send request",
+        description: result.error,
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -69,30 +98,32 @@ const Contact = () => {
               className="lg:col-span-2"
             >
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot: hidden from humans, bots fill it */}
+                <input type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" required maxLength={100} />
+                    <Input id="name" name="name" placeholder="John Doe" required maxLength={100} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="john@example.com" required maxLength={200} />
+                    <Input id="email" name="email" type="email" placeholder="john@example.com" required maxLength={200} />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" type="tel" placeholder="(555) 123-4567" maxLength={20} />
+                    <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" maxLength={20} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="location">Property Location</Label>
-                    <Input id="location" placeholder="City, State" maxLength={200} />
+                    <Input id="location" name="location" placeholder="City, State" maxLength={200} />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label>Service Needed</Label>
-                    <Select>
+                    <Select value={service} onValueChange={setService}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
@@ -105,7 +136,7 @@ const Contact = () => {
                   </div>
                   <div className="space-y-2">
                     <Label>Preferred Contact Method</Label>
-                    <Select>
+                    <Select value={contactMethod} onValueChange={setContactMethod}>
                       <SelectTrigger>
                         <SelectValue placeholder="Choose one" />
                       </SelectTrigger>
@@ -119,7 +150,7 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Describe your project or needs..." rows={5} maxLength={2000} />
+                  <Textarea id="message" name="message" placeholder="Describe your project or needs..." rows={5} maxLength={2000} />
                 </div>
                 <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={submitting}>
                   {submitting ? "Sending..." : "Send Request"}
