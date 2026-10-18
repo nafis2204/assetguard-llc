@@ -1,8 +1,8 @@
-import logoAsset from "@/assets/assetguard-logo.png.asset.json";
+import logo from "@/assets/assetguard-logo.png";
 
 export const brand = {
   name: "AssetGuard LLC",
-  logo: logoAsset.url,
+  logo,
   phone: "(269) 443-1343",
   phoneHref: "tel:+12694431343",
   email: "partnership@assetguardtx.com",
