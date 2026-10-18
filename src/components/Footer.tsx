@@ -21,7 +21,7 @@ const Footer = () => (
         <h4 className="font-heading text-sm uppercase tracking-widest text-leaf mb-4">Company</h4>
         <ul className="space-y-2 text-sm">
           {[
-            ["Home", "/"], ["Services", "/services"], ["About", "/about"], ["Contact", "/contact"], ["Join Our Network", "/become-a-vendor"],
+            ["Home", "/"], ["Services", "/services"], ["About", "/about"], ["Contact", "/contact"], ["Join Our Network", "/become-a-partner"],
           ].map(([l, t]) => (
             <li key={t}><Link to={t} className="opacity-80 hover:opacity-100 hover:text-leaf transition">{l}</Link></li>
           ))}
