@@ -1,62 +1,45 @@
 import { motion } from "framer-motion";
-import { Lightbulb, Award, Clock, Headphones, Users } from "lucide-react";
+import { Check } from "lucide-react";
 import teamPlanning from "@/assets/team-planning.jpg";
+import plumberWork from "@/assets/plumber-work.jpg";
 
-const benefits = [
-  { icon: Lightbulb, title: "Creative Ideas", desc: "Smart solutions tailored to your property" },
-  { icon: Award, title: "High Quality", desc: "Skilled workmanship with attention to detail" },
-  { icon: Clock, title: "Fast Processing", desc: "Quick scheduling and rapid turnaround" },
-  { icon: Headphones, title: "24/7 Support", desc: "Responsive communication anytime" },
-  { icon: Users, title: "Reliable Crews", desc: "Professional teams that get the job done" },
+const pledges = [
+  { title: "Before & after photos on every job", desc: "You see the work without driving to the site." },
+  { title: "One point of contact", desc: "A dedicated coordinator tracks your work order start to finish." },
+  { title: "Transparent, itemized bids", desc: "No vague totals — every line is explained before we begin." },
+  { title: "Vetted, insured technicians", desc: "Every vendor in our network is screened and covered." },
+  { title: "Around-the-clock emergency line", desc: "Leaks, break-ins and outages don't wait for business hours." },
 ];
 
-const WhyChooseUs = () => {
-  return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-foreground mb-8">
-              Why Choose <span className="text-gradient">RapidFix</span>
-            </h2>
-            <div className="flex flex-col gap-5">
-              {benefits.map((b, i) => (
-                <motion.div
-                  key={b.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-4"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0">
-                    <b.icon className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-foreground">{b.title}</h3>
-                    <p className="text-sm text-muted-foreground">{b.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+const WhyChooseUs = () => (
+  <section className="py-24 bg-forest text-forest-foreground overflow-hidden">
+    <div className="container mx-auto grid lg:grid-cols-2 gap-14 items-center">
+      <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-[460px] hidden md:block">
+        <img src={teamPlanning} alt="Crew reviewing a property work plan" className="absolute left-0 top-0 w-3/4 h-72 object-cover rounded-2xl" />
+        <img src={plumberWork} alt="Technician repairing plumbing" className="absolute right-0 bottom-0 w-3/5 h-64 object-cover rounded-2xl border-8 border-forest" />
+      </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-xl overflow-hidden shadow-2xl"
-          >
-            <img src={teamPlanning} alt="Team reviewing work plan" className="w-full h-auto" loading="lazy" />
-          </motion.div>
-        </div>
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-widest text-leaf mb-3">The AssetGuard standard</p>
+        <h2 className="text-3xl md:text-4xl font-heading font-extrabold">
+          Built for owners who can't be on site.
+        </h2>
+        <ul className="mt-10 space-y-6">
+          {pledges.map((p, i) => (
+            <motion.li key={p.title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="flex gap-4">
+              <span className="mt-0.5 h-7 w-7 shrink-0 rounded-full bg-primary flex items-center justify-center">
+                <Check size={16} className="text-primary-foreground" />
+              </span>
+              <div>
+                <h3 className="font-heading font-bold">{p.title}</h3>
+                <p className="text-sm opacity-75">{p.desc}</p>
+              </div>
+            </motion.li>
+          ))}
+        </ul>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default WhyChooseUs;

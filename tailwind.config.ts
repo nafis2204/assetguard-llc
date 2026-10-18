@@ -14,10 +14,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Montserrat", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        heading: ["Archivo", "sans-serif"],
+        body: ["Public Sans", "sans-serif"],
       },
       colors: {
+        forest: { DEFAULT: "hsl(var(--forest))", foreground: "hsl(var(--forest-foreground))" },
+        sage: "hsl(var(--sage))",
+        leaf: "hsl(var(--leaf))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

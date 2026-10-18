@@ -1,35 +1,27 @@
 import { Link } from "react-router-dom";
+import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { brand } from "@/lib/brand";
 
-const FinalCTA = () => {
-  return (
-    <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-background" />
-      <div className="container mx-auto relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-foreground mb-4">
-            Need fast, professional property maintenance?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Let RapidFix handle your property needs with speed, quality, and reliability.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" asChild>
-              <Link to="/contact">Request a Quote</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-          </div>
-        </motion.div>
+const FinalCTA = () => (
+  <section className="py-16 bg-background">
+    <div className="container mx-auto">
+      <div className="rounded-3xl px-8 py-14 md:px-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 text-forest-foreground" style={{ background: "var(--gradient-cta)" }}>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-heading font-extrabold">Have a property that needs attention?</h2>
+          <p className="mt-3 opacity-85">Tell us the address and the issue — we'll respond with a plan and a price.</p>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Button size="lg" variant="secondary" asChild>
+            <Link to="/contact">Start a Work Order</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="bg-transparent border-forest-foreground/40 text-forest-foreground hover:bg-forest-foreground/10 hover:text-forest-foreground" asChild>
+            <a href={brand.phoneHref}><Phone /> {brand.phone}</a>
+          </Button>
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default FinalCTA;
