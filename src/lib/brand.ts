@@ -1,13 +1,13 @@
-import logo from "@/assets/rapidfix-logo.png";
+import logoAsset from "@/assets/assetguard-logo.png.asset.json";
 
 export const brand = {
-  name: "RapidFix LLC",
-  logo,
-  phone: "+1 (915) 465-4014",
-  phoneHref: "tel:+19154654014",
-  email: "partnership@getrapidfix.com",
-  emailHref: "mailto:partnership@getrapidfix.com",
-  address: "3500 Sunbowl Dr, El Paso, TX 79902",
-  facebook: "https://www.facebook.com/profile.php?id=61589121953032",
-  maps: "https://maps.app.goo.gl/92i6HXrRf2TmmBqZ7",
+  name: "AssetGuard LLC",
+  logo: logoAsset.url,
+  phone: "(269) 443-1343",
+  phoneHref: "tel:+12694431343",
+  email: "partnership@assetguardtx.com",
+  emailHref: "mailto:partnership@assetguardtx.com",
+  address: "17350 State Hwy 249, Ste 220, Houston, TX 77064",
+  addressLines: ["17350 State Hwy 249, Ste 220", "Houston, TX 77064"],
+  maps: "https://www.google.com/maps/search/?api=1&query=17350+State+Hwy+249+Ste+220+Houston+TX+77064",
 };

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
+import { brand } from "@/lib/brand";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -14,76 +15,98 @@ const navLinks = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-
   useEffect(() => setMobileOpen(false), [location]);
 
   return (
-    <nav
-      aria-label="Main navigation"
-      className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300 rounded-2xl bg-background/90 backdrop-blur-xl shadow-lg border border-border/50"
-    >
-      <div className="flex items-center justify-between px-4 py-2">
-        <Link to="/" aria-label="RapidFix LLC home" className="flex items-center shrink-0">
-          <Logo />
-        </Link>
-
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-5">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button variant="outline" size="sm" asChild>
-            <Link to="/become-a-vendor">Become a Partner</Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link to="/contact">Request a Quote</Link>
-          </Button>
+    <header className="sticky top-0 z-50">
+      {/* Utility bar */}
+      <div className="hidden md:block bg-forest text-forest-foreground text-xs">
+        <div className="container mx-auto flex items-center justify-between py-2">
+          <span className="flex items-center gap-2 opacity-90">
+            <MapPin size={14} className="text-leaf" /> {brand.address}
+          </span>
+          <div className="flex items-center gap-6">
+            <a href={brand.emailHref} className="flex items-center gap-2 hover:text-leaf transition-colors">
+              <Mail size={14} className="text-leaf" /> {brand.email}
+            </a>
+            <a href={brand.phoneHref} className="flex items-center gap-2 font-semibold hover:text-leaf transition-colors">
+              <Phone size={14} className="text-leaf" /> {brand.phone}
+            </a>
+          </div>
         </div>
-
-        {/* Mobile toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-border/50 px-4 py-4 flex flex-col gap-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm font-medium py-1.5 transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button variant="outline" size="sm" asChild className="w-full">
-            <Link to="/become-a-vendor">Become a Partner</Link>
-          </Button>
-          <Button size="sm" asChild className="w-full">
-            <Link to="/contact">Request a Quote</Link>
+      <nav aria-label="Main navigation" className="bg-background/95 backdrop-blur border-b border-border">
+        <div className="container mx-auto flex items-center justify-between py-3">
+          <Link to="/" aria-label="AssetGuard LLC home" className="shrink-0">
+            <Logo />
+          </Link>
+
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => {
+              const active = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`relative text-sm font-semibold py-2 transition-colors hover:text-primary ${
+                    active ? "text-primary" : "text-foreground"
+                  }`}
+                >
+                  {link.label}
+                  {active && <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-primary rounded-full" />}
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="hidden lg:flex items-center gap-3">
+            <Button variant="outline" asChild>
+              <Link to="/become-a-vendor">Join Our Network</Link>
+            </Button>
+            <Button asChild>
+              <Link to="/contact">Get an Estimate</Link>
+            </Button>
+          </div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
         </div>
-      )}
-    </nav>
+
+        {mobileOpen && (
+          <div className="lg:hidden border-t border-border container mx-auto py-4 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`py-2 font-semibold ${location.pathname === link.to ? "text-primary" : "text-foreground"}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a href={brand.phoneHref} className="py-2 flex items-center gap-2 text-primary font-semibold">
+              <Phone size={16} /> {brand.phone}
+            </a>
+            <div className="grid grid-cols-2 gap-2 pt-2">
+              <Button variant="outline" asChild>
+                <Link to="/become-a-vendor">Join Network</Link>
+              </Button>
+              <Button asChild>
+                <Link to="/contact">Get an Estimate</Link>
+              </Button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 };
 

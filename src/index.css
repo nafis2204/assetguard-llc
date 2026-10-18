@@ -5,46 +5,51 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 60% 12%;
+    --foreground: 167 60% 10%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 167 60% 10%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 15%;
 
-    --primary: 22 100% 43%;
+    --primary: 167 100% 30%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary: 140 25% 96%;
+    --secondary-foreground: 167 100% 9%;
 
-    --muted: 0 0% 93%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 140 20% 93%;
+    --muted-foreground: 167 12% 34%;
 
-    --accent: 22 100% 43%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 140 35% 92%;
+    --accent-foreground: 167 100% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 22 100% 43%;
+    --border: 140 15% 87%;
+    --input: 140 15% 85%;
+    --ring: 167 100% 30%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 15%;
-    --sidebar-primary: 22 100% 43%;
+    --sidebar-primary: 167 100% 30%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 93%;
     --sidebar-accent-foreground: 0 0% 15%;
     --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 22 100% 43%;
+    --sidebar-ring: 167 100% 30%;
+
+    --forest: 167 100% 9%;
+    --forest-foreground: 140 30% 96%;
+    --sage: 135 33% 59%;
+    --leaf: 87 45% 71%;
 
     /* Custom tokens */
-    --gradient-cta: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--forest)), hsl(var(--primary)));
     --shadow-card: 0 4px 24px -4px hsla(0, 0%, 0%, 0.08);
     --shadow-glow: 0 0 20px hsl(var(--primary) / 0.15);
     --hero-overlay: linear-gradient(90deg, hsl(var(--background) / 0.98), hsl(var(--background) / 0.90) 45%, hsl(var(--background) / 0.40));
