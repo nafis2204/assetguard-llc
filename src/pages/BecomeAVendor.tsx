@@ -80,7 +80,7 @@ const BecomeAVendor = () => {
               Become a <span className="text-gradient">Partner</span>
             </h1>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              Join AssetGuard LLC's trusted vendor network. Complete the application below and our team will review your credentials.
+              Join AssetGuard LLC's trusted partner network. Complete the application below and our team will review your credentials.
             </p>
           </motion.div>
 
