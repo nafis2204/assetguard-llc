@@ -25,7 +25,7 @@ const About = () => {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="text-2xl font-heading font-bold text-foreground mb-4">Our Mission</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                At RapidFix LLC, our mission is to provide property owners, investors, and
+                At Assetguard LLC, our mission is to provide property owners, investors, and
                 managers with dependable maintenance and preservation services they can count on.
                 We combine skilled labor with efficient coordination to keep every property secure,
                 functional, and move-in ready.
