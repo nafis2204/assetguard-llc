@@ -161,7 +161,7 @@ const Contact = () => {
             {/* Contact info */}
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <div className="border-t-2 border-primary pt-6 space-y-6">
-                <h3 className="font-heading font-bold text-foreground">Contact RapidFix</h3>
+                <h3 className="font-heading font-bold text-foreground">Contact Assetguard</h3>
                 <a href={brand.phoneHref} className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
                   <Phone size={18} className="text-primary shrink-0" />
                   <span>{brand.phone}</span>
@@ -170,10 +170,10 @@ const Contact = () => {
                   <Mail size={18} className="text-primary shrink-0" />
                   <span className="break-all">{brand.email}</span>
                 </a>
-                <a href={brand.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
+                {/* <a href={brand.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
                   <Facebook size={18} className="text-primary shrink-0" />
                   <span>RapidFix on Facebook</span>
-                </a>
+                </a> */}
                 <a href={brand.maps} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-sm hover:text-primary transition-colors">
                   <MapPin size={18} className="text-primary mt-0.5 shrink-0" />
                   <span>{brand.address}</span>
